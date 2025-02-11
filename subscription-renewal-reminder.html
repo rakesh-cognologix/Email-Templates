@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Notice</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .beloved-text {
+            font-family: 'Times New Roman', Times, serif;
+            color: #8B0000;
+            font-size: 48px;
+            font-style: italic;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(139, 0, 0, 0.1);
+        }
+        .content {
+            color: #333;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        .notification-header {
+            padding: 15px;
+            text-align: center;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-weight: bold;
+            font-size: 18px;
+            color: white;
+        }
+        .header-renewal {
+            background-color: #28a745;
+        }
+        .header-expiring {
+            background-color: #dc3545;
+        }
+        .footer {
+            margin-top: 35px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            color: #666;
+            font-size: 14px;
+            text-align: center;
+            border: 1px dashed rgba(139, 0, 0, 0.2);
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+            .beloved-text {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="beloved-text">
+        Beloved Letters
+    </div>
+
+    {{#isOneTime}}
+    <div class="notification-header header-expiring">
+        One-Time Subscription Expiring
+    </div>
+    {{/isOneTime}}
+
+    {{^isOneTime}}
+    {{#isAutoRenew}}
+    <div class="notification-header header-renewal">
+        Subscription Renewal Notice
+    </div>
+    {{/isAutoRenew}}
+
+    {{^isAutoRenew}}
+    <div class="notification-header header-expiring">
+        Subscription Expiring Soon
+    </div>
+    {{/isAutoRenew}}
+    {{/isOneTime}}
+
+    <div class="content">
+        <p>Dear Valued Member,</p>
+
+        {{#isOneTime}}
+        <p>Your one-time subscription plan will expire on {{endDate}}.</p>
+        <p>To continue using our services, please visit your account dashboard and select a new subscription plan.</p>
+        {{/isOneTime}}
+
+        {{^isOneTime}}
+        {{#isAutoRenew}}
+        <p>Your subscription will be automatically renewed on {{endDate}}. No action is required from your side to continue enjoying our services.</p>
+        {{/isAutoRenew}}
+
+        {{^isAutoRenew}}
+        <p>Your subscription will expire on {{endDate}}.</p>
+        <p>To continue using our services without interruption, please visit your account dashboard to renew your subscription.</p>
+        {{/isAutoRenew}}
+        {{/isOneTime}}
+
+        <div class="footer">
+            <p>Thank you for being a valued member of Beloved Letters.</p>
+            <p>If you have any questions, please contact our support team at {{supportEmail}}</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

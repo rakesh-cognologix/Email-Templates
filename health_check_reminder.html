@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Beloved - Health Check</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .beloved-text {
+            font-family: 'Times New Roman', Times, serif;
+            color: #8B0000;
+            font-size: 48px;
+            font-style: italic;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(139, 0, 0, 0.1);
+        }
+        .content {
+            color: #333;
+            font-size: 16px;
+            line-height: 1.8;
+            text-align: center;
+        }
+        .message {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        .button-container {
+            text-align: center;
+            margin: 35px 0;
+        }
+        .button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(45deg, #8B0000, #A52A2A);
+            color: white !important; /* Force text color to white */
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(139, 0, 0, 0.2);
+        }
+        .button:visited,
+        .button:active,
+        .button:link {
+            color: white !important; /* Ensure all states remain white */
+        }
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 0, 0, 0.3);
+            background: linear-gradient(45deg, #A52A2A, #8B0000);
+            color: white !important; /* Ensure text remains white on hover */
+        }
+        .footer {
+            margin-top: 35px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            color: #666;
+            font-size: 13px;
+            text-align: center;
+            border: 1px dashed rgba(139, 0, 0, 0.2);
+        }
+        .notice {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            color: #666;
+            font-style: italic;
+        }
+        .notice::before, .notice::after {
+            content: "•";
+            margin: 0 10px;
+            color: #8B0000;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .container {
+            animation: fadeIn 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="beloved-text">
+        Beloved
+    </div>
+
+    <div class="content">
+        <div class="message">
+            Please click the button below to acknowledge the health check notification
+        </div>
+
+        <div class="button-container">
+            <a href="{{message}}" class="button">
+                Acknowledge Now
+            </a>
+        </div>
+
+        <div class="footer">
+            This is an automated notification - Please do not reply
+        </div>
+    </div>
+</div>
+</body>
+</html>

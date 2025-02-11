@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Letter Creation {{status}}</h2>
+<p>{{statusMessage}}</p>
+<p><strong>Details:</strong></p>
+<ul>
+  <li>Recipient: {{recipientName}}</li>
+  <li>Letter Title: {{letterTitle}}</li>
+  <li>Letter Type: {{letterType}}</li>
+  {{#errorMessage}}
+  <li>Error: {{errorMessage}}</li>
+  {{/errorMessage}}
+</ul>
+<p>Please contact support if any issue persists.</p>
+</body>
+</html>

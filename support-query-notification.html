@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Beloved - Support Query #{{queryId}}</title>
+  <style>
+    body {
+        font-family: 'Arial', sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f9fa;
+    }
+    .container {
+        max-width: 600px;
+        margin: 20px auto;
+        background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    .beloved-text {
+        font-family: 'Times New Roman', Times, serif;
+        color: #8B0000;
+        font-size: 48px;
+        font-style: italic;
+        text-align: center;
+        margin-bottom: 30px;
+        text-shadow: 2px 2px 4px rgba(139, 0, 0, 0.1);
+    }
+    .content {
+        color: #333;
+        font-size: 16px;
+        line-height: 1.8;
+    }
+    .section {
+        margin: 30px 0;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    .section-title {
+        color: #8B0000;
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 15px;
+        border-bottom: 2px solid rgba(139, 0, 0, 0.1);
+        padding-bottom: 8px;
+    }
+    .field {
+        margin: 10px 0;
+    }
+    .field-label {
+        font-weight: bold;
+        color: #666;
+    }
+    .field-value {
+        margin-left: 5px;
+    }
+    .query-text {
+        white-space: pre-wrap;
+        background-color: #f8f9fa;
+        padding: 15px;
+        border-radius: 8px;
+        border: 1px solid rgba(139, 0, 0, 0.1);
+    }
+    .attachments {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    .attachment-badge {
+        background: linear-gradient(45deg, #8B0000, #A52A2A);
+        color: white;
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-size: 14px;
+        display: inline-flex;
+        align-items: center;
+    }
+    .attachment-badge::before {
+        content: "📎";
+        margin-right: 5px;
+    }
+    .footer {
+        margin-top: 35px;
+        padding: 15px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        color: #666;
+        font-size: 13px;
+        text-align: center;
+        border: 1px dashed rgba(139, 0, 0, 0.2);
+    }
+    .notice {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+        color: #666;
+        font-style: italic;
+    }
+    .notice::before, .notice::after {
+        content: "•";
+        margin: 0 10px;
+        color: #8B0000;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .container {
+        animation: fadeIn 0.8s ease-out;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="beloved-text">
+    Beloved
+  </div>
+
+  <div class="content">
+    <div class="section">
+      <div class="section-title">Support Query</div>
+
+      <div class="field">
+        <span class="field-label">From:</span>
+        <span class="field-value">{{fullName}}</span>
+      </div>
+
+      <div class="field">
+        <span class="field-label">Email:</span>
+        <span class="field-value">{{email}}</span>
+      </div>
+
+      <div class="field">
+        <span class="field-label">Phone:</span>
+        <span class="field-value">{{phoneNumber}}</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Query Message</div>
+      <div class="query-text">{{query}}</div>
+    </div>
+
+    <div class="footer">
+      This is an automated notification from the support system - Please do not reply directly
+    </div>
+  </div>
+</div>
+</body>
+</html>

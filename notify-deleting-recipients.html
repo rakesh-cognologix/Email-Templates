@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipient Deletion</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .beloved-text {
+            font-family: 'Times New Roman', Times, serif;
+            color: #8B0000;
+            font-size: 48px;
+            font-style: italic;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(139, 0, 0, 0.1);
+        }
+        .content {
+            color: #333;
+            font-size: 16px;
+            line-height: 1.8;
+            text-align: center;
+        }
+        .message {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        ul li {
+            margin-bottom: 15px;
+        }
+        ul li strong {
+            color: #8B0000;
+        }
+        .footer {
+            margin-top: 35px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            color: #666;
+            font-size: 13px;
+            text-align: center;
+            border: 1px dashed rgba(139, 0, 0, 0.2);
+        }
+        .notice {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            color: #666;
+            font-style: italic;
+        }
+        .notice::before, .notice::after {
+            content: "•";
+            margin: 0 10px;
+            color: #8B0000;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .container {
+            animation: fadeIn 0.8s ease-out;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            .beloved-text {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container" role="main">
+    <div class="beloved-text" aria-label="Beloved Letters">
+        Beloved Letters
+    </div>
+    <h3 style="text-align:center;">Notification: Deleting Recipients</h3>
+    <div class="content">
+        <div class="message">
+            <p>Dear User,</p>
+            <p>The following recipients will be deleted after <strong>{{cutOffPeriod}}</strong> days:</p>
+        </div>
+
+        <div class="content">
+            <ul>
+                {{#recipients}}
+                <li>
+                    <strong>Name:</strong> {{fullName}}
+                </li>
+                {{/recipients}}
+            </ul>
+            <p>Please take necessary actions if required before the scheduled date.</p>
+        </div>
+
+        <div class="footer">
+            <p>This is an automated notification. Please do not reply.</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
