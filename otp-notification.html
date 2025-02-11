@@ -1,0 +1,105 @@
+package assets.templates;
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Beloved - Access Code Notification</title>
+  <style>
+    body {
+        font-family: 'Arial', sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f9fa;
+    }
+    .container {
+        max-width: 600px;
+        margin: 20px auto;
+        background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        animation: fadeIn 0.8s ease-out;
+    }
+    .beloved-text {
+        font-family: 'Times New Roman', Times, serif;
+        color: #8B0000;
+        font-size: 48px;
+        font-style: italic;
+        text-align: center;
+        margin-bottom: 30px;
+        text-shadow: 2px 2px 4px rgba(139, 0, 0, 0.1);
+    }
+    .content {
+        color: #333;
+        font-size: 16px;
+        line-height: 1.8;
+    }
+    .access-code-section {
+        margin: 30px 0;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        text-align: center;
+    }
+    .access-code {
+        font-size: 36px;
+        color: #8B0000;
+        letter-spacing: 10px;
+        background-color: #f8f9fa;
+        padding: 15px;
+        border-radius: 10px;
+        display: inline-block;
+        margin: 20px 0;
+        font-weight: bold;
+    }
+    .expiry-notice {
+        color: #666;
+        font-size: 14px;
+        margin-top: 20px;
+    }
+    .footer {
+        margin-top: 35px;
+        padding: 15px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        color: #666;
+        font-size: 13px;
+        text-align: center;
+        border: 1px dashed rgba(139, 0, 0, 0.2);
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="beloved-text">
+    Beloved Letters
+  </div>
+
+  <div class="content">
+    <div class="access-code-section">
+      <h2>Your OTP</h2>
+      <p>Please use the following OTP to unlock your letter and stay connected:</p>
+
+      <div class="otp">
+        {{OTP}}
+      </div>
+
+      <div class="expiry-notice">
+        and it is valid for next {{expiryDuration}}.
+      </div>
+    </div>
+
+    <div class="footer">
+      This is an automated notification - Please do not reply
+    </div>
+  </div>
+</div>
+</body>
+</html>

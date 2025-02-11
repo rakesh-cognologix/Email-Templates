@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beloved Letters</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          background-color: #f9f5f0;
+        }
+        .email-container {
+          max-width: 600px;
+          margin: 20px auto;
+          background-color: #ffffff;
+          border: 1px solid #e6e6e6;
+          border-radius: 8px;
+          padding: 20px;
+          box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .email-header {
+          font-family: 'Georgia', serif;
+          color: #8b3f3a;
+          font-size: 36px;
+          font-style: italic;
+          background-color: #f9f5f0;
+          padding: 20px;
+          text-align: left;
+        }
+        .email-content {
+          color: #333;
+          line-height: 1.6;
+          font-size: 16px;
+        }
+        .email-content p {
+          margin: 10px 0;
+        }
+        .email-content strong {
+          font-weight: bold;
+        }
+        .email-content .greeting {
+          color: #8b3f3a;
+          font-size: 18px;
+          margin-bottom: 20px;
+        }
+        .access-code {
+          font-size: 20px;
+          font-weight: bold;
+          color: #8b3f3a;
+        }
+        .view-button {
+          display: inline-block;
+          background-color: #8b3f3a;
+          color: #fff;
+          text-decoration: none;
+          padding: 12px 20px;
+          border-radius: 5px;
+          margin-top: 20px;
+          text-align: center;
+          font-weight: bold;
+        }
+        .view-button:hover {
+          background-color: #7a3834;
+        }
+        .email-footer {
+          margin-top: 20px;
+          font-size: 12px;
+          color: #999;
+          text-align: center;
+        }
+        .email-footer a {
+          color: #8b3f3a;
+          text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div class="email-container">
+    <div class="email-header">
+        Beloved Letters
+    </div>
+    <div class="email-content">
+        <p class="greeting">Hey {{recipient_name}}!</p>
+        <p>You have a new {{letter_type}} from <strong>{{user_name}}</strong> waiting for you. Don’t miss out to view your personal message.</p>
+        <p>Click this below button to view your letter and stay connected!</p>
+        <a href="{{view_link}}" class="view-button">View Letter</a>
+    </div>
+    <div class="email-footer">
+        <p>For any assistance or if you encounter issues, please contact our support team at
+            <a href="mailto:{{support_email}}">support@belovedletters.com</a>.
+        </p>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beloved Letters</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          background-color: #f9f5f0;
+        }
+        .email-container {
+          max-width: 600px;
+          margin: 20px auto;
+          background-color: #ffffff;
+          border: 1px solid #e6e6e6;
+          border-radius: 8px;
+          padding: 20px;
+          box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .email-header {
+          font-family: 'Georgia', serif;
+          color: #8b3f3a;
+          font-size: 36px;
+          font-style: italic;
+          background-color: #f9f5f0;
+          padding: 20px;
+          text-align: left;
+        }
+        .email-content {
+          color: #333;
+          line-height: 1.6;
+          font-size: 16px;
+        }
+        .email-content p {
+          margin: 10px 0;
+        }
+        .email-content strong {
+          font-weight: bold;
+        }
+        .email-content .greeting {
+          color: #8b3f3a;
+          font-size: 18px;
+          margin-bottom: 20px;
+        }
+        .status-message {
+          font-size: 18px;
+          font-weight: bold;
+          color: #8b3f3a;
+        }
+        .email-footer {
+          margin-top: 20px;
+          font-size: 12px;
+          color: #999;
+          text-align: center;
+        }
+        .email-footer a {
+          color: #8b3f3a;
+          text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div class="email-container">
+    <div class="email-header">
+        Beloved Letters
+    </div>
+    <div class="email-content">
+        <p class="greeting">Hi {{recipient_name}},</p>
+
+        <p class="status-message">
+            {{#success}}
+            Your {{letter_type}} "<strong>{{title}}</strong>" has been processed successfully! You can Download now.
+            {{/success}}
+            {{^success}}
+            Unfortunately, your {{letter_type}} "<strong>{{title}}</strong>" failed to process. Please try downloading again or contact our support team for assistance.
+            {{/success}}
+        </p>
+    </div>
+    <div class="email-footer">
+        <p>For any assistance, please contact our support team at
+            <a href="mailto:{{support_email}}">{{support_email}}</a>.
+        </p>
+    </div>
+</div>
+</body>
+</html>
