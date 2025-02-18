@@ -41,6 +41,26 @@
             border-radius: 10px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
+        .reminder-count {
+            color: #8B0000;
+            font-weight: bold;
+            margin: 15px 0;
+            font-size: 14px;
+            padding: 10px;
+            background-color: rgba(139, 0, 0, 0.05);
+            border-radius: 5px;
+        }
+        .urgent-notice {
+            color: #8B0000;
+            font-weight: bold;
+            margin: 20px 0;
+            font-size: 16px;
+            padding: 15px;
+            background-color: rgba(139, 0, 0, 0.1);
+            border-radius: 5px;
+            border: 1px dashed #8B0000;
+        }
+
         .button-container {
             text-align: center;
             margin: 35px 0;
@@ -49,7 +69,7 @@
             display: inline-block;
             padding: 15px 40px;
             background: linear-gradient(45deg, #8B0000, #A52A2A);
-            color: white !important; /* Force text color to white */
+            color: white !important;
             text-decoration: none;
             border-radius: 30px;
             font-weight: bold;
@@ -62,13 +82,12 @@
         .button:visited,
         .button:active,
         .button:link {
-            color: white !important; /* Ensure all states remain white */
+            color: white !important;
         }
         .button:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(139, 0, 0, 0.3);
             background: linear-gradient(45deg, #A52A2A, #8B0000);
-            color: white !important; /* Ensure text remains white on hover */
         }
         .footer {
             margin-top: 35px;
@@ -80,47 +99,55 @@
             text-align: center;
             border: 1px dashed rgba(139, 0, 0, 0.2);
         }
-        .notice {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 20px;
-            color: #666;
-            font-style: italic;
-        }
-        .notice::before, .notice::after {
-            content: "•";
-            margin: 0 10px;
-            color: #8B0000;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .container {
-            animation: fadeIn 0.8s ease-out;
-        }
     </style>
 </head>
 <body>
 <div class="container">
     <div class="beloved-text">
-        Beloved
+        Beloved Letters
     </div>
 
     <div class="content">
         <div class="message">
-            Please click the button below to acknowledge the health check notification
+            {{#isFirstNotification}}
+            Your health check is now due. Your timely response ensures that your precious letters are safely held and will be delivered according to your wishes.
+            {{/isFirstNotification}}
+            {{^isFirstNotification}}
+            {{#isLastReminder}}
+            ⚠️ Important: Your health check requires immediate attention to maintain control over your letter deliveries.
+            {{/isLastReminder}}
+            {{^isLastReminder}}
+            This is a reminder for your health check. Your acknowledgment helps us ensure your letters are delivered exactly as you've planned.
+            {{/isLastReminder}}
+            {{/isFirstNotification}}
         </div>
+
+        {{^isLastReminder}}
+        <div class="reminder-count">
+            Reminder {{currentReminder}} of {{totalReminders}}
+        </div>
+        {{/isLastReminder}}
 
         <div class="button-container">
             <a href="{{message}}" class="button">
+                {{#isLastReminder}}
+                Acknowledge Now ⚠️
+                {{/isLastReminder}}
+                {{^isLastReminder}}
                 Acknowledge Now
+                {{/isLastReminder}}
             </a>
         </div>
 
+        {{#isLastReminder}}
+        <div class="urgent-notice">
+            Final Reminder: If no response is received, your health check will be marked as failed and your health check-based letters will be delivered to your loved ones.
+        </div>
+        {{/isLastReminder}}
+
         <div class="footer">
-            This is an automated notification - Please do not reply
+            This is an automated notification from Beloved Letters.
+            <br>Please do not reply to this email.
         </div>
     </div>
 </div>
